@@ -996,8 +996,8 @@ if set --query KERL_ENABLE_PROMPT
     end
 end
 if test -d "$absdir/lib/docsh"
-    set -x DOCSH_USER_DEFAULT "$absdir/lib/docsh/user_default"
-    set -x _KERL_DOCSH_USER_DEFAULT yes
+    set -g DOCSH_USER_DEFAULT "$absdir/lib/docsh/user_default"
+    set -g _KERL_DOCSH_USER_DEFAULT yes
     if test -f "\$HOME/.erlang"
         if test ! x"\$KERL_DOCSH_DOT_ERLANG" = x"exists"
             echo "Couldn't symlink correct \$HOME/.erlang - file exists - docsh might not work."
@@ -1007,7 +1007,7 @@ if test -d "$absdir/lib/docsh"
         end
     else
         ln -s "$absdir/lib/docsh/dot.erlang" "\$HOME/.erlang"
-        set -x _KERL_DOCSH_DOT_ERLANG yes
+        set -g _KERL_DOCSH_DOT_ERLANG yes
     end
 end
 ACTIVATE_FISH
